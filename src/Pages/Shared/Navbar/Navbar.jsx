@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 max-w-screen-xl fixed z-10 bg-opacity-30">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -34,7 +34,7 @@ const Navbar = () => {
                 <div className="navbar-end gap-5">
                     <img className="rounded-full w-12 " src = {dummyImg} alt="" />
                     <Link className="btn">Log Out</Link>
-                    <Link className="btn">SignIn</Link>
+                    <Link to = '/login' className="btn">SignIn</Link>
                 </div>
             </div>
         </>
