@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import login_img from '../../../public/login_img.jpg'
 import { useForm } from 'react-hook-form';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
@@ -10,23 +10,24 @@ import Swal from 'sweetalert2';
 const Login = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [show, setShow] = useState(false);
 
-    const {signIn} = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
 
     const onSubmit = (data) => {
         signIn(data.email, data.password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            Swal.fire({
-                position: 'top-center',
-                icon: 'success',
-                title: 'Your Have Successfully Logged In',
-                showConfirmButton: false,
-                timer: 1500
-              })
-              reset()
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Your Have Successfully Logged In',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                reset()
+            })
     }
 
     console.log("example");
@@ -60,13 +61,24 @@ const Login = () => {
                                         <label className="label">
                                             <span className="label-text">Password</span>
                                         </label>
-                                        <input type="password" {...register("password",
+                                        <input type={show ? "text":"password"} {...register("password",
                                             {
                                                 required: true,
                                                 minLength: 6,
                                                 maxLength: 20,
                                                 pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z].*)/
                                             })} name="password" placeholder="password" className="input input-bordered" />
+
+                                        <div onClick={() => setShow(!show)}>
+                                            {
+                                                show ? <p>
+                                                    <input type="checkbox" /><span>Hide Password</span>
+                                                </p> :
+                                                    <p>
+                                                        <input type="checkbox" /> <span>Show Password</span>
+                                                    </p>
+                                            }
+                                        </div>
                                         {errors.password && <span className="text-red-500">Password  is required</span>}
 
                                         {errors.password?.type === 'minLength' && <p role="alert">Password must have 6 characters</p>}

@@ -13,9 +13,7 @@ const Navbar = () => {
         <li className="uppercase font-semibold"><Link> Instructors</Link></li>
         <li className="uppercase font-semibold"><Link> Classes</Link></li>
         <li className="uppercase font-semibold"><Link> Dashboard</Link></li>
-        {/* <li className="uppercase font-semibold"><Link> login</Link></li>
-        <li className="uppercase font-semibold"><Link> Log Out</Link></li>
-        <img className="rounded-full w-12 " src = {dummyImg} alt="" /> */}
+       
 
     </>
 
@@ -52,7 +50,7 @@ const Navbar = () => {
 
                     {
                         user ? <>
-                            <img className="rounded-full w-12 " src =   {user?.photoURL} alt="" />
+                            <img className="rounded-full w-12 " src = {user?.photoURL} alt="" />
                             <Link onClick={handleLogOut} className="btn">Log Out</Link>
                         </> : <>
                             <Link to='/login' className="btn">Login</Link>
