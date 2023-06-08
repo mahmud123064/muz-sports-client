@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 
 const Login = () => {
@@ -99,9 +100,7 @@ const Login = () => {
                                 </form>
                                 <p className='text-center'>Do not have an Account?<span className='text-red-500 '><Link to='/signup'> Please Register</Link></span></p>
 
-                                <div className="divider">OR</div>
-
-                                <button className='btn btn-secondary'>Google</button>
+                                <SocialLogin></SocialLogin>
                             </div>
                         </div>
 
