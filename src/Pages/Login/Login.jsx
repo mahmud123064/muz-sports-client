@@ -4,19 +4,28 @@ import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const {signIn} = useContext(AuthContext)
+    const {signIn} = useContext(AuthContext);
 
-    const onSubmit = data => {
+    const onSubmit = (data) => {
         signIn(data.email, data.password)
         .then(result => {
             const user = result.user;
             console.log(user);
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Your Have Successfully Logged In',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              reset()
         })
     }
 

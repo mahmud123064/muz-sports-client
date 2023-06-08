@@ -2,13 +2,23 @@
 import { Link } from 'react-router-dom';
 import login_img from '../../../public/login_img.jpg'
 import { useForm } from 'react-hook-form';
+import { Helmet } from 'react-helmet-async';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+    const {createUser} = useContext(AuthContext);
+
     const onSubmit = data => {
         console.log(data);
+        createUser(data.email,data.password)
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
     }
 
     console.log("example");
@@ -17,6 +27,9 @@ const SignUp = () => {
 
     return (
         <div className='mb-12 mt-12'>
+             <Helmet>
+                <title> MUZ SPORTS | Sign Up</title>
+            </Helmet>
             <div className="hero min-h-screen bg-base-200">
 
                 <div>
