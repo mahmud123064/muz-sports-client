@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login_img from '../../../public/login_img.jpg'
 import { useForm } from 'react-hook-form';
 import { useContext, useState } from 'react';
@@ -11,6 +11,10 @@ const Login = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [show, setShow] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || "/"
 
     const { signIn } = useContext(AuthContext);
 
@@ -26,6 +30,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                navigate(from, { replace: true })
                 reset()
             })
     }
