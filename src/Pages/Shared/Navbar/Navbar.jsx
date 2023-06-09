@@ -11,7 +11,7 @@ const Navbar = () => {
 
         <li className="uppercase font-semibold"><Link>HOME</Link></li>
         <li className="uppercase font-semibold"><Link> Instructors</Link></li>
-        <li className="uppercase font-semibold"><Link> Classes</Link></li>
+        <li className="uppercase font-semibold"><Link to = '/classes'> Classes</Link></li>
         <li className="uppercase font-semibold"><Link> Dashboard</Link></li>
        
 

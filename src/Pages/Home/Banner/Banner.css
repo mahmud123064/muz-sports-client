@@ -1,0 +1,41 @@
+#slide1{
+    background-image: url('../../../../src/assets/Cricket.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+}
+
+#slide2{
+    background-image: url('../../../../src/assets/football.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+}
+
+#slide3{
+    background-image: url('../../../../src/assets/badminton.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+}
+
+#slide4{
+    background-image: url('../../../../src/assets/basketball.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+}
+
+#slide5{
+    background-image: url('../../../../src/assets/hocky.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+}
+
+#slide6{
+    background-image: url('../../../../src/assets/volyball.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+}

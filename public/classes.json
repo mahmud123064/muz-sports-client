@@ -1,0 +1,44 @@
+[
+    {
+        "image": "https://i.ibb.co/3Fcp04y/cricket.jpg",
+        "name": "Cricket",
+        "price": 7000,
+        "available_seats": 15,
+        "instructor_name": "John Smith"
+    },
+    {
+        "image": "https://i.ibb.co/7tf497L/football.png",
+        "name": "Football",
+        "price": 8000,
+        "available_seats": 20,
+        "instructor_name": "Sarah Johnson"
+    },
+    {
+        "image": "https://i.ibb.co/zfppjgN/vollyball.jpg",
+        "name": "volyball",
+        "price": 5000,
+        "available_seats": 10,
+        "instructor_name": "Michael Brown"
+    },
+    {
+        "image": "https://i.ibb.co/r0yMZXz/badminton.png",
+        "name": "badminton",
+        "price": 9000,
+        "available_seats": 12,
+        "instructor_name": "Emily Davis"
+    },
+    {
+        "image": "https://i.ibb.co/0q4GmVs/basketball.jpg",
+        "name": "basketball",
+        "price": 6000,
+        "available_seats": 8,
+        "instructor_name": "Daniel Wilson"
+    },
+    {
+        "image": "https://i.ibb.co/0qb5ws4/hockey.png",
+        "name": "hocky",
+        "price": 10000,
+        "available_seats": 6,
+        "instructor_name": "Olivia Anderson"
+    }
+]
