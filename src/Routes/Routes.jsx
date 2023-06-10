@@ -8,6 +8,8 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Classes from "../Pages/Classes/Classes";
+import Dashboard from "../Layout/Dashboard";
+import MySelectedClasses from "../Pages/Dashboard/mySelectedClasses";
 
 
 
@@ -37,5 +39,15 @@ export const router = createBrowserRouter([
 
         ]
     },
+    {
+        path: "/dashboard",
+        element:<Dashboard></Dashboard>,
+        children: [
+            {
+                path: "myselectedclasses",
+                element:<MySelectedClasses></MySelectedClasses>
+            }
+        ]
+    }
 ]);
 
