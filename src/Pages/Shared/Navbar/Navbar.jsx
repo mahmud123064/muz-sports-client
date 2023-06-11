@@ -13,12 +13,14 @@ const Navbar = () => {
         <li className="uppercase font-semibold"><Link> Instructors</Link></li>
         <li className="uppercase font-semibold"><Link to = '/classes'> Classes</Link></li>
         <li className="uppercase font-semibold"><Link to = '/dashboard/myselectedclasses'> Dashboard</Link></li>
+   
        
 
     </>
 
     const handleLogOut = () => {
         logOut()
+        
             // .then(() => {
 
             // })
