@@ -9,7 +9,7 @@ const MySelectedClasses = () => {
     const [selectedClass, refetch] = useSelectedClass();
     console.log(selectedClass);
 
-    const total = selectedClass.reduce((sum, item) => item.price + sum, 0)
+    const total = selectedClass.reduce((sum, item) => item.price + sum, 0);
 
     const handleDelete = (item) => {
         Swal.fire({
@@ -91,6 +91,8 @@ const MySelectedClasses = () => {
                                 </td>
                                 <td>
                                     <button onClick={() => handleDelete(item)} className="btn btn-ghost btn-md bg-orange-500 text-white"><FaTrashAlt></FaTrashAlt>Delete</button>
+
+                                    <button></button>
                                 </td>
                             </tr>)
                         }

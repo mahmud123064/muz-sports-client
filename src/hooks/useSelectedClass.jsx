@@ -16,12 +16,6 @@ const useSelectedClass = () =>{
       })
 
       return[ selectedClass, refetch]
-
-// useEffect(()=>{
-//     fetch(`http://localhost:5000/selectedClasses?email=${user?.email}`)
-//     .then(res => res.json())
-//     .then(data => console.log(data))
-// },[])
 }
 
 export default useSelectedClass;
