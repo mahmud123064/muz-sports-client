@@ -18,32 +18,48 @@ const SignUp = () => {
 
     const onSubmit = data => {
         // console.log(data);
-        if(data.password !== data.confirmPassword){
+        if (data.password !== data.confirmPassword) {
             setError("Password Not matched")
-            return 
+            return
         }
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
+
                 updateUser(data.name, data.photoURL)
-                    .then(result => {
-                        const logedUser = result.user;
-                        console.log(logedUser);
-                        Swal.fire({
-                            position: 'top-center',
-                            icon: 'success',
-                            title: 'Your Have Successfully Signed Up',
-                            showConfirmButton: false,
-                            timer: 1500
+                    .then(() => {
+                        // const logedUser = result.user;
+                        const saveUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json"
+                            },
+                            body: JSON.stringify(saveUser)
                         })
-                        
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-center',
+                                        icon: 'success',
+                                        title: 'Your Have Successfully Signed Up',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                }
+                            })
+
+
+
                     })
                     .catch(error => {
                         console.log(error);
                     })
                 console.log(loggedUser);
-              
-                reset()
+
+
                 navigate('/')
             })
     }
@@ -112,7 +128,7 @@ const SignUp = () => {
                                         <input type="password" name='confirmPassword'
                                             {...register("confirmPassword", { required: true })}
                                             placeholder="Confirm password" className="input input-bordered" />
-                                            <p className='text-red-500' >{error}</p>
+                                        <p className='text-red-500' >{error}</p>
                                     </div>
 
                                     {/* <div className="form-control">

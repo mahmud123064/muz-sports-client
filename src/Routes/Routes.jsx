@@ -10,6 +10,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Layout/Dashboard";
 import MySelectedClasses from "../Pages/Dashboard/mySelectedClasses";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -32,20 +33,22 @@ export const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path:'/classes',
-                element:<Classes></Classes>
-            
+                path: '/classes',
+                element: <Classes></Classes>
+
             }
 
         ]
     },
     {
         path: "/dashboard",
-        element:<Dashboard></Dashboard>,
+        element: <PrivateRoute>
+            <Dashboard></Dashboard>
+        </PrivateRoute>,
         children: [
             {
                 path: "myselectedclasses",
-                element:<MySelectedClasses></MySelectedClasses>
+                element: <MySelectedClasses></MySelectedClasses>
             }
         ]
     }
