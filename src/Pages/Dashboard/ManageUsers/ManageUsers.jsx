@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
-import {   FaUserShield } from "react-icons/fa";
+import { FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageUsers = () => {
@@ -10,37 +10,87 @@ const ManageUsers = () => {
     })
 
 
-    const handleInstructor = user =>{
+    const handleInstructor = user => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to make this person as Instructor!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Make it'
+        })
 
+            .then(result => {
+                if (result.isConfirmed) {
+                    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+                        method: "PATCH"
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            if (data.modifiedCount) {
+                                refetch()
+                                Swal.fire(
+                                    'Added!',
+                                    'You have added successfully',
+                                    'success'
+                                )
+                            }
+                        })
+                }
+
+            })
     }
-   
 
- const handleMakeAdmin = user =>{
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You want to make this person as Admin!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, Make it'
-    })
-    fetch(`http://localhost:5000/users/admin/${user._id}`,{
-        method:"PATCH"
-    })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        if(data.modifiedCount){
-            refetch()
-            Swal.fire(
-                'Added!',
-                'You have added successfully',
-                'success'
-              )
-        }
-    })
- }
+
+    const handleMakeAdmin = user => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to make this person as Admin!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Make it'
+        })
+
+        .then(result => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/users/admin/${user._id}`, {
+                    method: "PATCH"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.modifiedCount) {
+                            refetch()
+                            Swal.fire(
+                                'Added!',
+                                'You have added successfully',
+                                'success'
+                            )
+                        }
+                    })
+            }
+
+        })
+        // fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        //     method: "PATCH"
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         if (data.modifiedCount) {
+        //             refetch()
+        //             Swal.fire(
+        //                 'Added!',
+        //                 'You have added successfully',
+        //                 'success'
+        //             )
+        //         }
+        //     })
+    }
 
     return (
         <div className="w-full">
@@ -71,22 +121,22 @@ const ManageUsers = () => {
                                     <td>{user.email}</td>
 
                                     <td>{
-                                        user.role === 'admin' ? "admin" : 
+                                        user.role === 'admin' ? "admin" : user.role === "instructor" ? "instructor" :
 
-                                        <button  className="btn btn-ghost btn-md bg-orange-500 text-white"><FaUserShield></FaUserShield></button>
+                                            <button className="btn btn-ghost btn-md bg-orange-500 text-white"><FaUserShield></FaUserShield></button>
                                     }</td>
-                                    <td>
-                                        {/* {
+                                    {/* <td>
+                                        {
                                         user.role === 'instructor' ? "instructor" : 
 
-                                        <button onClick={() => handleInstructor(user)} className="btn btn-ghost btn-md bg-orange-500 text-white"><FaUserShield></FaUserShield>Instructor</button>
-                                    } */}
-                                    </td>
+                                        <button onClick={() => handleInstructor(user)} className="btn btn-ghost btn-md bg-orange-500 text-white"><FaUserShield></FaUserShield></button>
+                                    }
+                                    </td> */}
                                     <td >
                                         <button onClick={() => handleMakeAdmin(user)} className="btn btn-secondary me-2">Make Admin</button>
-                                        <button className="btn btn-primary">Make Instructor</button>
+                                        <button onClick={() => handleInstructor(user)} className="btn btn-primary">Make Instructor</button>
                                     </td>
-                                   
+
                                 </tr>)
                             }
 
