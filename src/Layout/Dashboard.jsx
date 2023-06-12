@@ -10,7 +10,7 @@ const Dashboard = () => {
     const [selectedClass] = useSelectedClass()
 
     // load data from server based on dynamic admin 
-    const isAdmin = true;
+    const isAdmin = false;
     const isInstructor = false;
     return (
         <div>
