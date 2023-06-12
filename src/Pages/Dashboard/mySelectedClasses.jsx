@@ -50,7 +50,7 @@ const MySelectedClasses = () => {
             <div className="font-semibold flex justify-evenly items-center mb-5 h-[60px]">
                 <h2>Total Selected Classes : {selectedClass.length}</h2>
                 <h2>Total Selected Classes Price : {total}</h2>
-                <button className="btn btn-warning btn-sm">PAY</button>
+            
             </div>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -90,9 +90,9 @@ const MySelectedClasses = () => {
                                     {item.instructor_name}
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDelete(item)} className="btn btn-ghost btn-md bg-orange-500 text-white"><FaTrashAlt></FaTrashAlt>Delete</button>
+                                    <button onClick={() => handleDelete(item)} className="btn btn-ghost btn-md bg-red-500 text-white"><FaTrashAlt></FaTrashAlt>Delete</button>
 
-                                    <button></button>
+                                    <button className="btn btn-ghost btn-md bg-orange-500 ms-5 text-white">PAY</button>
                                 </td>
                             </tr>)
                         }

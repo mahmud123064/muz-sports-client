@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaHome, FaBook } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet, FaHome, FaBook, FaUsers } from 'react-icons/fa';
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import useSelectedClass from "../hooks/useSelectedClass";
@@ -8,6 +8,10 @@ import useSelectedClass from "../hooks/useSelectedClass";
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
     const [selectedClass] = useSelectedClass()
+
+    // load data from server based on dynamic admin 
+    const isAdmin = true;
+    const isInstructor = false;
     return (
         <div>
             <div className="drawer drawer-mobile lg:drawer-open">
@@ -30,14 +34,36 @@ const Dashboard = () => {
                             <p>{user?.email}</p>
 
                         </div>
+                        {/* ///////////// */}
+                        {
+                            isAdmin ? <>
+                                <li>
+                                    <NavLink to='/dashboard/'><FaBook></FaBook> Manage Classes
+                                        {/* <span className="badge badge-secondary">+{selectedClass?.length || 0 }</span> */}
+                                    </NavLink>
+                                </li>
+                                <li className="font-semibold"><NavLink to='/dashboard/manageusers'><FaUsers></FaUsers>Manage Users</NavLink></li>
 
-                        <li>
-                            <NavLink to='/dashboard/myselectedclasses'><FaShoppingCart></FaShoppingCart> My Selected Classes
-                            <span className="badge badge-secondary">+{selectedClass?.length || 0 }</span>
-                            </NavLink>
-                        </li>
-                        <li className="font-semibold"><NavLink to='/dashboard/enrolledclasses'><FaBook></FaBook>My Enrolled Classes</NavLink></li>
-                        <li><NavLink to='/dashboard/history'><FaWallet></FaWallet>Payment History</NavLink></li>
+                            </> : isInstructor ? <>
+                                <li>
+                                    <NavLink to='/dashboard/'><FaBook></FaBook> Add a Class</NavLink>
+                                </li>
+                                <li className="font-semibold"><NavLink to='/dashboard/'>My Classes</NavLink></li>
+
+                            </> : <>
+                                <li>
+                                    <NavLink to='/dashboard/myselectedclasses'><FaShoppingCart></FaShoppingCart> My Selected Classes
+                                        <span className="badge badge-secondary">+{selectedClass?.length || 0}</span>
+                                    </NavLink>
+                                </li>
+                                <li className="font-semibold"><NavLink to='/dashboard/enrolledclasses'><FaBook></FaBook>My Enrolled Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/history'><FaWallet></FaWallet>Payment History</NavLink></li>
+                            </>
+                        }
+                        {/* ///////////// */}
+
+
+
                         <div className="divider"></div>
                         <li><NavLink to='/'><FaHome></FaHome>HOME</NavLink></li>
                         <li><NavLink to='/classes'><FaBook></FaBook>CLASSES</NavLink></li>
