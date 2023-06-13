@@ -52,9 +52,9 @@ const Dashboard = () => {
 
                             </> : isInstructor ? <>
                                 <li>
-                                    <NavLink to='/dashboard/'><FaBook></FaBook> Add a Class</NavLink>
+                                    <NavLink to='/dashboard/addaclass'><FaBook></FaBook> Add a Class</NavLink>
                                 </li>
-                                <li className="font-semibold"><NavLink to='/dashboard/'>My Classes</NavLink></li>
+                                <li className="font-semibold"><NavLink to='/dashboard/myclasses'>My Classes</NavLink></li>
 
                             </> : <>
                                 <li>
