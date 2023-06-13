@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import useSelectedClass from "../hooks/useSelectedClass";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 
 const Dashboard = () => {
@@ -12,9 +13,10 @@ const Dashboard = () => {
 
     // load data from server based on dynamic admin 
     // const isAdmin = true;
-    const isInstructor = true;
+    // const isInstructor = true;
 
     const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructor()
 
     return (
         <div>
