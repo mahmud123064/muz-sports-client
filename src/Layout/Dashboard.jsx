@@ -12,7 +12,7 @@ const Dashboard = () => {
 
     // load data from server based on dynamic admin 
     // const isAdmin = true;
-    const isInstructor = false;
+    const isInstructor = true;
 
     const [isAdmin] = useAdmin()
 
@@ -26,9 +26,9 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
-                <div className="drawer-side bg-amber-800">
+                <div className="drawer-side bg-purple-700">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full  bg-amber-800 text-base-content">
+                    <ul className="menu p-4 w-80 h-full  bg-purple-700 text-base-content">
                         {/* Sidebar content here */}
                         <h3 className="text-center font-semibold text-2xl text-white mb-3">MUZ SPORTS</h3>
 
