@@ -10,8 +10,8 @@ const Dashboard = () => {
     const [selectedClass] = useSelectedClass()
 
     // load data from server based on dynamic admin 
-    const isAdmin = false;
-    const isInstructor = false;
+    const isAdmin = true;
+    const isInstructor = true;
     return (
         <div>
             <div className="drawer drawer-mobile lg:drawer-open">
@@ -53,7 +53,7 @@ const Dashboard = () => {
                             </> : <>
                                 <li>
                                     <NavLink to='/dashboard/myselectedclasses'><FaShoppingCart></FaShoppingCart> My Selected Classes
-                                        <span className="badge badge-secondary">+{selectedClass?.length || 0}</span>
+                                        {/* <span className="badge badge-secondary">+{selectedClass?.length || 0}</span> */}
                                     </NavLink>
                                 </li>
                                 <li className="font-semibold"><NavLink to='/dashboard/enrolledclasses'><FaBook></FaBook>My Enrolled Classes</NavLink></li>

@@ -3,19 +3,24 @@ import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 // import { useEffect } from 'react';
 
-const useSelectedClass = () =>{
+const useSelectedClass = () => {
 
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    const token = localStorage.getItem('access-token')
 
-    const { refetch, data: selectedClass = []  } = useQuery({
+    const { refetch, data: selectedClass = [] } = useQuery({
         queryKey: ['selectedclasses', user?.email],
         queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/selectedclasses?email=${user?.email}`)
-            return response.json()
+            const res = await fetch(`http://localhost:5000/selectedclasses?email=${user?.email}`, {
+                headers: {
+                    authorization: `bearer ${token}`
+                }
+            })
+            return res.json()
         }
-      })
+    })
 
-      return[ selectedClass, refetch]
+    return [selectedClass, refetch]
 }
 
 export default useSelectedClass;
