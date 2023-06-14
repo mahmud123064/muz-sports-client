@@ -23,6 +23,9 @@
 - 8. In Dashboard there are student, admin and Instructor dashboard
 - 9. In classes select button student select and he/she will find in dashboard my selected classes
 - 10. Student can delete selected classes
+- 11. In admin dashboard admin can add a user admin or instructor
+- 12. In instructor dashboard a instructor can add a class and the class will how in the classes page
+- 13. And Available seat wise it will show on the popular classes.
 
 
 - LIVE LINK : 
