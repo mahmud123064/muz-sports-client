@@ -5,6 +5,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 import useSelectedClass from "../hooks/useSelectedClass";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import { Helmet } from "react-helmet-async";
 
 
 const Dashboard = () => {
@@ -20,6 +21,9 @@ const Dashboard = () => {
 
     return (
         <div>
+             <Helmet>
+                <title> MUZ SPORTS | login</title>
+            </Helmet>
             <div className="drawer drawer-mobile lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+
 import about_img from "../../../assets/about_us.jpg"
 import { Link } from "react-router-dom";
 
@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 const AboutUs = () => {
     return (
         <div className="mb-12">
-            <Helmet>
-                <title> MUZ SPORTS | About Us</title>
-            </Helmet>
+           
 
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
