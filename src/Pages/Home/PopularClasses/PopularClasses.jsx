@@ -21,7 +21,7 @@ const PopularClasses = () => {
           try {
             const response = await fetch('http://localhost:5000/classes');
             const jsonData = await response.json();
-            const sortedData = jsonData.sort((a, b) => b.available_seats - a.available_seats);
+            const sortedData = jsonData.sort((a, b) => a.available_seats - b.available_seats);
             const topSixData = sortedData.slice(0, 6);
             console.log(topSixData);
             setPopularClasses(topSixData);

@@ -60,6 +60,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'addaclass',
+                // element:<InstructorRoute></InstructorRoute>
                 element:<InstructorRoute><AddaClass></AddaClass></InstructorRoute>
             },
             {
