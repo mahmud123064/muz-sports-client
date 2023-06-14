@@ -6,12 +6,12 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 
 const useAxiosSecure = () => {
-//   const { logOut } = useAuth(); 
-const {logOut} = useContext(AuthContext)
-  const navigate = useNavigate(); 
+  //   const { logOut } = useAuth(); 
+  const { logOut } = useContext(AuthContext)
+  const navigate = useNavigate();
 
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://muz-sports-server.vercel.app',
   });
 
   useEffect(() => {

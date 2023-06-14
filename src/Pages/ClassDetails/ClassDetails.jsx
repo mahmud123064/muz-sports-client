@@ -19,7 +19,7 @@ const ClassDetails = ({ classItem }) => {
 
             const classItem = { classItemId: _id, available_seats, image, instructor_name, name, price, email: user.email }
 
-            fetch('http://localhost:5000/selectedClasses', {
+            fetch('https://muz-sports-server.vercel.app/selectedClasses', {
                 method: "POST",
                 headers:{
                     "content-type" : "application/json"

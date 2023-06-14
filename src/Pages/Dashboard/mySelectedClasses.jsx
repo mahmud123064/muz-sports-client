@@ -23,7 +23,7 @@ const MySelectedClasses = () => {
         })
         .then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/selectedclasses/${item._id}`, {
+                fetch(`https://muz-sports-server.vercel.app/selectedclasses/${item._id}`, {
                     method:"DELETE"
                 })
 

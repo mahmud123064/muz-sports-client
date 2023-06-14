@@ -7,7 +7,7 @@ const PopularClasses = () => {
     const [popularClasses, setPopularClasses] = useState([]);
 
     // useEffect(()=>{
-    //     fetch('http://localhost:5000/classes')
+    //     fetch('https://muz-sports-server.vercel.app/classes')
     //     .then(res => res.json())
     //     .then(data => {
     //         const sortedData = res.sort((a,b)=> b.available_seats - a.available_seats );
@@ -19,7 +19,7 @@ const PopularClasses = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('http://localhost:5000/classes');
+            const response = await fetch('https://muz-sports-server.vercel.app/classes');
             const jsonData = await response.json();
             const sortedData = jsonData.sort((a, b) => a.available_seats - b.available_seats);
             const topSixData = sortedData.slice(0, 6);

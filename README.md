@@ -28,4 +28,4 @@
 - 13. And Available seat wise it will show on the popular classes.
 
 
-- LIVE LINK : 
+- LIVE LINK : https://muz-sports.web.app/

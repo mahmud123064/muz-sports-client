@@ -22,7 +22,7 @@ const Dashboard = () => {
     return (
         <div>
              <Helmet>
-                <title> MUZ SPORTS | login</title>
+                <title> MUZ SPORTS | Dashboard</title>
             </Helmet>
             <div className="drawer drawer-mobile lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

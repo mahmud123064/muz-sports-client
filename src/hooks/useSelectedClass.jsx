@@ -16,7 +16,7 @@ const useSelectedClass = () => {
         queryKey: ['selectedclasses', user?.email],
         enabled: !loading,
         // queryFn: async () => {
-        //     const res = await fetch(`http://localhost:5000/selectedclasses?email=${user?.email}`, {
+        //     const res = await fetch(`https://muz-sports-server.vercel.app/selectedclasses?email=${user?.email}`, {
         //         headers: {
         //             authorization: `bearer ${token}`
         //         }
